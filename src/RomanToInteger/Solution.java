@@ -59,12 +59,14 @@ public class Solution {
 		int sum = 0;
 		// check I V X C M    sum+= 1 5 10 100 ....
 		// checkAddOrSub('C')   look the left next , true is add,like 'CC'  false is Sub 'CD'    
-		for (int i = len -1;i > 0;i--){
-			if (checkAddOrSub(s.charAt(i), s.charAt( i - 1))){
+		for (int i = 0;i < len -1;i++){
+			if (checkAddOrSub(s.charAt(i), s.charAt( i + 1))){
 				sum += checkChar(s.charAt(i));
+			}else{
+				sum -= checkChar(s.charAt(i));
 			} 
 		}
-		sum += checkChar(s.charAt(0));
+		sum += checkChar(s.charAt(len - 1));
 		return sum;
 	}
 	
@@ -194,8 +196,8 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution s = new Solution();
 		//TODO  fix 
-		System.out.println(s.romanToInt("MMDCXXVI"));
-		System.out.println(s.intToRoman(2626));
+		System.out.println(s.romanToInt("MMCDXXVI"));
+		System.out.println(s.intToRoman(2426));
 
 	}
 
