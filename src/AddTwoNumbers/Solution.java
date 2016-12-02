@@ -1,42 +1,46 @@
 package AddTwoNumbers;
 
+import java.util.Scanner;
+
 import IntersectionofTwoLinkedLists.ListNode;
 
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    	ListNode cur = new ListNode(0);
-    	ListNode result = cur;
-    	boolean flag = false;
+    	ListNode cur = null;
+    	ListNode result = null;
     	if(l1 != null && l2 != null){
     		ListNode cur1 = l1;
     		ListNode cur2 = l2;
+    		int f = 0;
     		
     		while(cur1 != null || cur2 != null){
-    			result.val += flag ? 1 : 0;
-    			
+    			int res = 0;
     			if(cur1 != null){
-    				result.val += cur1.val;
+    				res += cur1.val;
     				cur1 = cur1.next;
     			}
     			if(cur2 != null){
-    				result.val += cur2.val;
+    				res += cur2.val;
     				cur2 = cur2.next;
+    			}    			
+    			if(f != 0){
+    				res = f + res;
     			}
+    			f = res / 10;
+    			res = res % 10;
     			
-    			if(result.val >= 10){
-    				flag = true;
+    			if(result == null){
+    			    result = new ListNode(res);
+    			    cur = result;
     			}else{
-    				flag = false;
+    			    result.next = new ListNode(res);
+    			    result = result.next;
     			}
-    			result.val = result.val % 10;
-    			result.next = new ListNode(0);
-    			result = result.next;
+//    			result = result.next;
     		}
     		
-    		if(flag){
-    			result.val = 1;
-    		}else{
-    			result.next = null;
+    		if(f != 0){ 
+    			result.next = new ListNode(f);
     		}
     	}
         return cur;
@@ -46,12 +50,22 @@ public class Solution {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ListNode l1 = new ListNode(0);
-		l1.next = new ListNode(9);
-		ListNode l2 = new ListNode(0);
-		l2.next = new ListNode(3);
+		ListNode head1 = new ListNode(1);
+//		ListNode l1 = new ListNode(9);
+//		ListNode l2 = new ListNode(3);
+//		ListNode l3 = new ListNode(1);
+//		head1.next = l1;
+//		l1.next = l2;
+//		l2.next = l3;
+		ListNode head2 = new ListNode(9);
+		ListNode l4 = new ListNode(9);
+//		ListNode l5 =  new ListNode(3);
+//		ListNode l6 = new ListNode(1);
+		head2.next = l4;
+//		l4.next = l5;
+//		l5.next = l6;
 		Solution s = new Solution();
-		ListNode re = s.addTwoNumbers(l1, l2);
+		ListNode re = s.addTwoNumbers(head1, head2);
 		while(re != null){
 			System.out.println(re.val);
 			re = re.next;

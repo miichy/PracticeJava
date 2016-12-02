@@ -6,6 +6,10 @@ public class Solution {
 	 * ["abc", "ab", "abcd"] --> "ab"
 	 */
 	public String longestCommonPrefix(String[] strs) {
+		if(strs.length == 0 || strs == null)
+			return "";
+	    if(strs.length == 1)
+	        return strs[0];
         //get the shortest length of str[i]
 		int shortestLen = strs[0].length();
 		int matchNum = 0;
@@ -20,6 +24,8 @@ public class Solution {
 		for (int i=0;i < shortestLen; i++){
 			if(checkSimilarity(i, strs)){
 				matchNum++;
+			}else{
+				break;
 			}
 		}
 		
@@ -50,8 +56,8 @@ public class Solution {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String[] strs = {"obscure","obscures","obscured","obscuring"};
-		
+//		String[] strs = {"obscure","obscures","obscured","obscuring"};
+		String[] strs = {"a"};
 		Solution s = new Solution();
 		System.out.println(s.longestCommonPrefix(strs));
 		String[] strs1 = {"abc", "ab", "abcd"};

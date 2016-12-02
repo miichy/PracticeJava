@@ -14,64 +14,24 @@ Output: index1=1, index2=2
 	 * @param numbers
 	 * @param target
 	 * @return
-	 */
-    public int[] twoSum(int[] numbers, int target) {
-         int len = numbers.length;
-         int[] re = new int[2];
-         if(len < 2){
-        	 return null;
-         }
-         
-         int indexA =0, indexB = 0;
-         
-         for(int i =0;i < len ; i++){
-        	 if(numbers[i] <= target){
-        		 indexA = i;
-        		 int tmp = target - numbers[i];
-        		 
-//        		 for(int j = i+1;j < len;j++){
-//        			 if(numbers[j] == tmp){
-//        				 indexB = j;
-//        				 re[0] = indexA;
-//        				 re[1] = indexB;
-//        				 return re;
-//        			 }
-//        		 }
-        		 
-        		 if(contains(tmp,i,numbers) > 0){
-        			 indexB = contains(tmp,i,numbers);
-        			 re[0] = indexA;
-        			 re[1] = indexB;
-        			 return re;
-        		 }
-        	 }
-         }
-         
-    	return re;
-    }
-    
-    public int contains(int tmp, int i,int[] numbers){
-    	for(int index =i ;index < numbers.length;index++){
-    		if(numbers[index] == tmp){
-    			return index;
-    		}
-    	}
-    	
-    	return -1;
-    }
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int[] a ={3,2,4};
-		Solution s = new Solution();
-		int num = 6;
-		for(int i=0;i<s.twoSum(a, num).length;i++){
-			System.out.println(s.twoSum(a, num)[i]);
+	 */    
+	public int[] twoSum(int[] numbers, int target) {
+		int[] res = new int[2];
+		int len = numbers.length;
+		if(len < 2){
+			return null;
+		}
+		for(int i = 1 ;i < len;i++){
+			for(int j = 0;j < i;j++){
+				if(numbers[i] + numbers[j] == target){
+					res[0] = j;
+					res[1] = i;
+					return res;
+				}
+			}
 		}
 		
-
+		return res;		
 	}
 
 }

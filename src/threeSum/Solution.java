@@ -12,7 +12,7 @@ public class Solution {
         Arrays.sort(num);
         
         if(len < 3){
-        	return null;
+        	return res;
         }
         
         for(int i = 0 ;i < len - 2; i++){
@@ -32,10 +32,12 @@ public class Solution {
         				 start++;
         				 end--;
         				 
-        				 while(start < end && num[start] == num[start + 1])
+//        				 while(start < end && num[start] == num[start + 1])
+        				 while(start < end && num[start] == num[start - 1])
         					 start++;
         				 
-        				 while(start < end && num[end] == num[end - 1])
+//        				 while(start < end && num[end] == num[end - 1])
+        				 while(start < end && num[end] == num[end + 1])
         					 end--;
         				 
         				 
@@ -83,6 +85,7 @@ public class Solution {
 		Solution s = new Solution();
 		int[] num = {-1,1,-1,0,2,-3};
 		s.threeSum(num);
+		System.out.println("YES");
 	}
 
 }
