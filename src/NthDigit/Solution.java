@@ -1,11 +1,13 @@
 package NthDigit;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution {
 
 	public static void main(String[] args) {
 		Solution s = new Solution();
 		System.out.println(s.findNthDigit(55));
-
 	}
 	
     public int findNthDigit(int n) {
