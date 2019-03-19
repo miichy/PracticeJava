@@ -43,7 +43,4 @@ public class RunnableDemo implements Runnable{
         demo2.run();
     }
 
-    <T> T getT(Class<T> t){
-        return (T) t.getClass();
-    }
 }

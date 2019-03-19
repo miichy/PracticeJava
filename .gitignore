@@ -8,3 +8,7 @@
 .settings/org.eclipse.wst.validation.prefs
 
 bin/*
+
+.classpath
+.project
+PracticeJava.iml
