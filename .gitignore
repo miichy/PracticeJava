@@ -1,14 +1,6 @@
-/bin/*
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-
-.idea/inspectionProfiles/
-.idea/workspace.xml
-.settings/org.eclipse.wst.validation.prefs
-
-bin/*
-
+.idea/*
+.settings/*
 .classpath
 .project
 PracticeJava.iml
+
